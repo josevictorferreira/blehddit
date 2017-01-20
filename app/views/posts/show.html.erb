@@ -25,5 +25,12 @@
   <%= @post.link %>
 </p>
 
+<% unless @post.image.nil? %>
+  <p>
+    <strong>Image:</strong>
+    <a href="<%= @post.image %>">Link</a>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
