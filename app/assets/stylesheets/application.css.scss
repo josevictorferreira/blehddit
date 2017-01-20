@@ -16,10 +16,10 @@
 @import "bootstrap-sprockets";
 
 // Import cerulean variables
-@import "bootswatch/journal/variables";
+@import "bootswatch/slate/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
 
 // And finally bootswatch style itself
-@import "bootswatch/journal/bootswatch";
+@import "bootswatch/slate/bootswatch";
