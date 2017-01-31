@@ -13,20 +13,18 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '~> 5.0'
 
 gem 'simple_form'
 
 gem 'devise'
 
+gem 'coffee-rails'
+gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'sass-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -46,6 +44,9 @@ gem 'link_thumbnailer'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'pry-rails'
 end
 
 group :development do

@@ -1,6 +1,11 @@
 class Post < ApplicationRecord
 
-  before_save :get_link_thumbnailer, :set_votes_to_0
+  after_initialize :set_votes_to_0
+  before_save :get_link_thumbnailer
+
+  validates :title, :link, presence:true
+
+  belongs_to :user, class_name: 'User'
 
   def get_link_thumbnailer
     unless link.blank?
@@ -15,5 +20,13 @@ class Post < ApplicationRecord
 
   def votes
     return self.upvotes - self.downvotes
+  end
+
+  def upvote!
+    self.upvotes += 1
+  end
+
+  def downvote!
+    self.downvotes += 1
   end
 end
