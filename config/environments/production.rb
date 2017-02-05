@@ -18,6 +18,16 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.root_url = 'localhost:3000'
+
+  config.action_mailer.default_url_options = {
+    host: 'localhost:3000', protocol: 'http://'
+  }
+
+  config.action_controller.default_url_options = {
+    :host => "localhost:3000"
+  }
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
