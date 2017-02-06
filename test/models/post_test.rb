@@ -1,9 +1,12 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
 
   setup do
+    sign_in(User.first)
     @post = posts(:one)
+    @post.user = User.first
   end
 
   test "should initialize upvotes to 0" do
@@ -31,16 +34,16 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "should generate image thumbnail" do
-    image = 'http://og.infg.com.br/in/20838706-b1e-999/FT1086A/64602505_French-Foreign-Minister-Jean-Marc-Ayrault-R-holds-a-joint-press-conference-with-his-German.jpg'
-    @post.save
-    assert @post.image.include? image
+    image = 'https://i.kinja-img.com/gawker-media/image/upload/s--1V_EkVGj--/c_fill,fl_progressive,g_center,h_450,q_80,w_800/il1hcxddgfe0unecooxv.jpg'
+    @post.save!
+    assert @post.image == image
     @post.destroy
   end
 
   test "should validate presence of link and title" do
     assert_not Post.create(link: @post.link).valid?
     assert_not Post.create(title: @post.title).valid?
-    assert Post.create(link: @post.link, title: @post.title).valid?
+    assert Post.create(user: User.first, link: @post.link, title: @post.title).valid?
   end
 
 end

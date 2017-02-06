@@ -3,10 +3,11 @@ class Post < ApplicationRecord
   after_initialize :set_votes_to_0
   before_save :get_link_thumbnailer
 
+  belongs_to :user, class_name: 'User', required: true
+
   validates :title, presence: true
   validates :link, presence: true
-
-  belongs_to :user, class_name: 'User', required: true
+  validates :user, presence: true
 
   def get_link_thumbnailer
     unless link.blank?

@@ -5,9 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  email: "teste@gmail.com"
-# column: value
-#
+  username: test
+  email: test@host.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "12345678") %>
+  confirmed_at: <%= Time.now %>
+
 two:
-  email: "testando@gmail.com"
-# column: value
+  username: test2
+  email: test2@host.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "12345678") %>
+  confirmed_at: <%= Time.now %>

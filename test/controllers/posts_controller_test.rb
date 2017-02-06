@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in(User.first)
     @post = posts(:one)
+    @post.user = User.first
   end
 
   test "should get index" do
@@ -11,7 +15,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    puts new_post_url
     get new_post_url
     assert_response :success
   end
@@ -35,7 +38,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update post" do
-    patch post_url(@post), params: { post: { link: @post.link, text: @post.text, title: @post.title } }
+    patch post_url(@post), params: { post: { link: @post.link, text: @post.text, title: @post.title, user: User.first } }
     assert_redirected_to post_url(@post)
   end
 

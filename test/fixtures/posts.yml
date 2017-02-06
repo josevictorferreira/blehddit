@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: França e Alemanha expressam preocupação com decisões de Trump
-  text: Após reunião com colega alemão, chanceler francês defendeu direitos dos refugiados
-  link: http://oglobo.globo.com/mundo/franca-alemanha-expressam-preocupacao-com-decisoes-de-trump-20838708
+  title: Filter Out the Noise
+  text: It can seem like our lives are filled with busyness, noise, distractions, and often meaningless activities.
+  link: http://lifehacker.com/filter-out-the-noise-1791820526
 
 two:
   title: http://oglobo.globo.com/economia/governo-fara-pente-fino-em-434-bilhoes-em-renuncias-fiscais-20837674
